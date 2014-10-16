@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+{% from "_formhelpers.html" import render_field %}
+    <script src="/static/genpass.js"></script>
+<div class="container">
+    <h1>Hello!</h1>
+    <p>Click <a href="http://google.com">here</a> to go to google.</p>
+    <form method=post action="/index" name="myform">
+        <dl>
+            {{ render_field(field=form.domain, label_visible=true, placeholder='Domain', type='text') }}
+            {{ render_field(field=form.password, label_visible=true, placeholder='Password', type='password') }}
+        </dl>
+        <input type="submit" class="btn btn-default" value="Generate!"/>
+        <!--a class="btn btn-default" href="javascript:void();" id="submit_form">Generate Password!</a-->
+    </form>
+</div>
+{% endblock %}
