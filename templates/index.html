@@ -1,17 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-{% from "_formhelpers.html" import render_field %}
-    <script src="/static/genpass.js"></script>
 <div class="container">
-    <h1>Hello!</h1>
-    <p>Click <a href="http://google.com">here</a> to go to google.</p>
-    <form method=post action="/index" name="myform">
-        <dl>
-            {{ render_field(field=form.domain, label_visible=true, placeholder='Domain', type='text') }}
-            {{ render_field(field=form.password, label_visible=true, placeholder='Password', type='password') }}
-        </dl>
-        <input type="submit" class="btn btn-default" value="Generate!"/>
-        <!--a class="btn btn-default" href="javascript:void();" id="submit_form">Generate Password!</a-->
-    </form>
+   <div class="container">
+      <input id="domain"
+         type="text"
+         class="form-control"
+         placeholder="Domain"
+      aria-describedby="basic-addon1">
+      <div class="input-group">
+         <input id="secretpass"
+         type="password"
+         class="form-control"
+               placeholder="Password" aria-describedby="basic-addon1">
+   <span class="input-group-btn">
+      <button onClick="return generatePassword()"
+         id="gen" class="btn btn-default" type="button">Generate</button>
+   </span>
 </div>
+
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">#</span>
+  <input id="passwd" type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+       <span class="input-group-btn">
+         <button id="copypwd" class="btn btn-default" data-clipboard-target="#passwd">
+           <img width="13" src="assets/clippy.svg" alt="Copy to clipboard">
+        </button>
+      </span>
+</div>
+  </div>
 {% endblock %}
