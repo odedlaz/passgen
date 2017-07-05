@@ -1,4 +1,5 @@
 app:
     build: .
+    hostname: passgen
     ports:
         - "80:80"
